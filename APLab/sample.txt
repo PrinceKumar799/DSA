@@ -1,0 +1,4 @@
+Name: Prince Kumar
+UID: 20BCS3936
+Age: 21
+Section: KRG2

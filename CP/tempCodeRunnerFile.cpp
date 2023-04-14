@@ -1,0 +1,1 @@
+int min = min(m,n)

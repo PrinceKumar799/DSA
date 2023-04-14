@@ -1,0 +1,157 @@
+#include<bits/stdc++.h>
+#define ll long long
+using namespace std;
+int max(int a, int b)
+{
+    if(a>b)
+    return a;
+    else 
+    return b;
+}
+
+char toUpper(char ch)
+{
+    return ch & '_';  //~(1<<5) binary rep of '_' ASCII
+}
+
+char toLower(char ch)
+{
+    return ch | ' '; 
+}
+
+bool checkEven(int a)
+{
+    if(a & 1)
+        return false;
+    else
+        return true;
+}
+
+bool checkOdd(int a)
+{
+    if(a & 1)
+        return true;
+    else
+        return false;
+}
+
+//n>>1 divides n by 2
+//n<< multiplies n by 2
+void printBinary(int a)
+{
+    for (int i = 31; i >=0; i--)
+    {
+        cout<<((a>>i)&1);
+    }
+    cout<<endl;
+    
+}
+void setOrUnset(int a)
+{
+    int i=0;
+    cin>>i;
+    if((a & 1<<i) !=0)
+    {
+        cout<<"Set Bit"<<endl;
+    }
+    else
+        cout<<"Unset Bit"<<endl;
+}
+
+int setBit(int a)
+{
+    int i;
+    cin>>i;
+    return (a | 1<<i);
+}
+
+int unsetBit(int a)
+{
+    int i;
+    cin>>i;
+    return (a & ~(1<<i));
+}
+
+int toogleBits(int a)
+{
+    int i;
+    cin>>i;
+    return (a ^ 1<<i);
+}
+int countSetBits(int a)
+{
+    int cnt =0;
+    for (int i = 0; i < 31; i++)
+    {
+        if(a & 1<<i)
+        {
+            cnt++;
+        }
+    }
+    return cnt;  
+}
+
+int countUnsetBits(int a)
+{
+    int cnt=0;
+    for(int i=0;i<31;i++)
+    {
+        if((a & (1<<i))==0)
+            cnt++;
+    }
+    return cnt;
+}
+//1010101010101
+//1111000000000
+int clearLSB(int a)    
+{
+    int i;
+    cin>>i;
+    return a & (~((1<<(i+1))-1));
+}
+bool arr[90000001];
+vector<int> primes;
+int nmax = 90000000;
+void seive()
+{
+    arr[0]=true;
+    arr[1]=true;
+    for (int i = 2; i*i <=nmax; i++)
+    {
+        if(!arr[i])
+        {
+            for (int j = i*i; j <= nmax; j+i)
+            {
+                if(!arr[j])
+                {
+                    arr[j]=true;
+                }
+            }
+            
+        }
+    }
+    for (int i = 0; i < nmax; i++)
+    {
+        if(!arr[i])
+        {
+            primes.push_back(i);
+        }
+    }
+    
+    
+}
+
+int main()
+{
+    int q;
+    cin>>q;
+    seive();
+    while (q--)
+    {
+        int t;
+        cin>>t;
+        cout<<primes[t-1]<<endl;
+    }
+    
+    return 0;
+}
