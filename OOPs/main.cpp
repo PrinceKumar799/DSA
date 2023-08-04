@@ -3,12 +3,15 @@
 using namespace std;
 int main()
 {
-    Hero ramesh(10, 'A');
+    Hero ramesh(0, 'A');
     ramesh.print();
-    ramesh.setHealth(30);
 
     // using inbuilt copy constructor
+    // inbuilt copy constructor makes shallow copy
+    // user definde copy constructor makes deep copy
     Hero suresh(ramesh);
+    ramesh.health = 1000;
+    ramesh.print();
     suresh.print();
 
     return 0;

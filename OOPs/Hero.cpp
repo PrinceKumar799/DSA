@@ -2,10 +2,10 @@
 class Hero
 {
 private:
-    int health;
     char level;
 
 public:
+    int health;
     // compiler provides a default and copy constructor inbuilt
     // user defined default constructor
     Hero()
@@ -17,6 +17,12 @@ public:
     {
         this->health = health;
         this->level = level;
+    }
+    // user defined copy constructor
+    Hero(Hero &temp)
+    {
+        this->health = temp.health;
+        this->level = temp.level;
     }
     void setHealth(int h)
     {
