@@ -3,9 +3,13 @@
 using namespace std;
 int main()
 {
-    Hero ramesh;
-    cout << "size of" << sizeof(ramesh);
-    ramesh.setHealth(13);
-    cout << "Ramesh Health is: " << ramesh.getHealth();
+    Hero ramesh(10, 'A');
+    ramesh.print();
+    ramesh.setHealth(30);
+
+    // using inbuilt copy constructor
+    Hero suresh(ramesh);
+    suresh.print();
+
     return 0;
 }
