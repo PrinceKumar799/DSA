@@ -1,3 +1,4 @@
+#include <iostream>
 class Hero
 {
 private:
@@ -5,6 +6,18 @@ private:
     char level;
 
 public:
+    // compiler provides a default and copy constructor inbuilt
+    // user defined default constructor
+    Hero()
+    {
+        std::cout << "Default Constructor" << '\n';
+    }
+    // parametrized constructor
+    Hero(int health, int level)
+    {
+        this->health = health;
+        this->level = level;
+    }
     void setHealth(int h)
     {
         health = h;
@@ -23,7 +36,7 @@ public:
     }
     void print()
     {
-        cout << "Health: " << health << endl;
-        cout << "Level: " << level << endl;
+        std::cout << "Health: " << health << '\n';
+        std::cout << "Level: " << level << '\n';
     }
 };
