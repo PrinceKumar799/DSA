@@ -1,10 +1,6 @@
 #include <iostream>
+#include "Hero.cpp"
 using namespace std;
-class Hero
-{
-    int health;
-    char level;
-};
 int main()
 {
     Hero ramesh;
