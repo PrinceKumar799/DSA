@@ -3,9 +3,10 @@ class Hero
 {
 private:
     char level;
+    int health;
+    static int timeToComplete;
 
 public:
-    int health;
     // compiler provides a default and copy constructor inbuilt
     // user defined default constructor
     Hero()
@@ -45,4 +46,9 @@ public:
         std::cout << "Health: " << health << '\n';
         std::cout << "Level: " << level << '\n';
     }
+    static int getTimeToComplete()
+    {
+        return timeToComplete;
+    }
 };
+int Hero::timeToComplete = 5;
