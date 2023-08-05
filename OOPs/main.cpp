@@ -4,10 +4,16 @@ using namespace std;
 int main()
 {
 
-    // Static data memebers and functions
-    // 1. Static members belongs to class
-    // 2. Static functions can only access static variables
-    cout << Hero::getTimeToComplete() << endl;
+    // intializer list to intialzie const data memeber
+    Hero h1(10, 'E', 1);
+    h1.print();
+    Hero h2(h1);
+    h2.print();
+
+    // // Static data memebers and functions
+    // // 1. Static members belongs to class
+    // // 2. Static functions can only access static variables
+    // cout << Hero::getTimeToComplete() << endl;
 
     // Hero ramesh(0, 'A');
     // ramesh.print();

@@ -2,6 +2,7 @@
 class Hero
 {
 private:
+    const int id;
     char level;
     int health;
     static int timeToComplete;
@@ -9,18 +10,18 @@ private:
 public:
     // compiler provides a default and copy constructor inbuilt
     // user defined default constructor
-    Hero()
+    Hero(int id) : id(id)
     {
         std::cout << "Default Constructor" << '\n';
     }
     // parametrized constructor
-    Hero(int health, int level)
+    Hero(int health, int level, int id) : id(id)
     {
         this->health = health;
         this->level = level;
     }
     // user defined copy constructor
-    Hero(Hero &temp)
+    Hero(Hero &temp) : id(temp.id)
     {
         this->health = temp.health;
         this->level = temp.level;
@@ -45,6 +46,7 @@ public:
     {
         std::cout << "Health: " << health << '\n';
         std::cout << "Level: " << level << '\n';
+        std::cout << "Id: " << id << '\n';
     }
     static int getTimeToComplete()
     {
