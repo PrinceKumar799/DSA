@@ -62,6 +62,43 @@ Node *buildTree(Node *root)
     return root;
 }
 
+void buildTreeFromLevelOrderTraversal(Node *&root)
+{
+    queue<Node *> q;
+    int data;
+    cin >> data;
+    if (data == -1)
+    {
+        root = NULL;
+        return;
+    }
+    root = new Node(data);
+    q.push(root);
+    while (!q.empty())
+    {
+        Node *front = q.front();
+        q.pop();
+        cout << "Enter data to insert left of " << front->data << ": ";
+        cin >> data;
+        front->left = new Node(data);
+        if (data == -1)
+        {
+            front->left = NULL;
+        }
+        else
+            q.push(front->left);
+        cout << "Enter data to insert right of " << front->data << ": ";
+        cin >> data;
+        front->right = new Node(data);
+        if (data == -1)
+        {
+            front->right = NULL;
+        }
+        else
+            q.push(front->right);
+    }
+}
+
 // level order traversal is same as BFS
 void levelOrderTraversal(Node *root)
 {
@@ -215,7 +252,8 @@ void levelOrderTraversalLevelwise(Node *root)
 int main()
 {
     Node *root = NULL;
-    root = buildTree(root);
+    // root = buildTree(root);
+    buildTreeFromLevelOrderTraversal(root);
     // cout<<"\nLEVEL ORDER"<<endl;
     // levelOrderTraversal(root);
     // cout<<"\nPRE ORDER"<<endl;
